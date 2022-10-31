@@ -78,7 +78,7 @@ Data file structure：
 
 Experimental rig ：
 
-![b22907551611ab9322ce02788af09ce](D:\深度学习\测试数据\湖大螺旋锥齿轮新箱体test\试验台\b22907551611ab9322ce02788af09ce.jpg)
+![湖南大学实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/湖大试验台.jpg)
 
 2.The gearbox fault datasets collect from XJTU
 
@@ -99,7 +99,7 @@ Data file structure：
 
 Experimental rig ：
 
-![image-20221028142056787](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20221028142056787.png)
+![西安交通大学实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/Figure_XJTUGearbox.jpg)
 
 3.The gearbox fault datasets collect from DDS
 
@@ -115,7 +115,7 @@ Data file structure：
 
 Experimental rig ：
 
-![image-20221028142239324](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20221028142239324.png)
+![DDS实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/DDS.jpg)
 
 #### Experimental results
 
@@ -144,7 +144,7 @@ pip install -r requirement.txt
 
 Download code locally with git：
 
-git clone https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team.git
+git clone https://github.com/bighan123/HNUIDG-Fault-Diagnosis-.git
 
 #### Description of key parameters
 
