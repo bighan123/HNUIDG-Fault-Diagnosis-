@@ -234,7 +234,7 @@ class Convformer_nse(nn.Module):
             self.last_channels = cfg[2][3]
         else:
             self.last_channels = cfg[0][3] + cfg[1][3] + cfg[2][3]
-        self.nse = Avg_max_channel_attention(in_channel=self.last_channel, ratio=4)
+        self.nse = Avg_max_channel_attention(in_channel=self.last_channels, ratio=4)
         self.avg_pool = nn.AdaptiveAvgPool1d(1)
         self.classifier = nn.ModuleList()
         if not h_args:

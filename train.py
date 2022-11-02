@@ -77,7 +77,8 @@ def parse_args():
                                  'max_vit_tiny_16', 'max_vit_tiny_32', 'max_vit_small_16', 'max_vit_small_32',
                                  'localvit_base_patch16_type1', 'localvit_base_patch16_type2',
                                  ' localvit_middle1_patch16_type1', 'localvit_middle12_patch16_type1',
-                                 'nat_tiny'],
+                                 'nat_tiny',
+                                 'mcswin_t'],
                         help="the name of model")
 
     parser.add_argument("--num_cls", type=int, default=9, help="the classification classes")

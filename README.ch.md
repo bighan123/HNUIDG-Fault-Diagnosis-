@@ -1,10 +1,10 @@
-# The fault diagnosis repository of HNU intelligent diagnosis Groups
+# The fault diagnosis code demo of HNU intelligent diagnosis Groups
 
-#### Description of model
+#### 模型介绍
 
-The classical CNN,  Vision Transformer and Hybrid model is supported for intelligent fault diagnosis. Our repository is based on processing one dimensional data, so we made some change on the structure and hyper parameters of the model compared with the original settings. The detailed information about backbone are as follows
+实现了经典CNN模型，视觉Transformer模型，Hybrid模型的智能故障诊断。处理的数据为一维振动数据，因此在相关模型的结构上（堆叠层数，参数，维度变换）与原作者论文有些许不同，具体实现的模型backbone如下：
 
-| classical CNN model                 | URL                                                          |
+| 经典CNN分类模型                     | 论文地址                                                     |
 | :---------------------------------- | ------------------------------------------------------------ |
 | VGG                                 | https://arxiv.org/abs/1409.1556                              |
 | Mobilenetv2                         | https://arxiv.org/abs/1801.04381                             |
@@ -12,15 +12,16 @@ The classical CNN,  Vision Transformer and Hybrid model is supported for intelli
 | ResNet                              | https://arxiv.org/abs/1512.03385                             |
 | EHcnn (Proposed by HNU IDG)         | https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDAUTO&filename=HKXB202209008&uniplatform=NZKPT&v=8XwRD3UrBzc5RLf7bgtiV03xKtD_9kS4MV9A71YudCNH_8tQnvjpIXlFSqD3JoDc |
 | Dilated EHcnn(Proposed by HNU IDG)  | https://iopscience.iop.org/article/10.1088/1361-6501/ac1b43  |
-| **Vision Transformer model**        |                                                              |
+| **经典视觉Transformer模型**         |                                                              |
 | ViT                                 | https://arxiv.org/abs/2010.11929                             |
-| **Hybrid model**                    |                                                              |
+| **Hybrid模型**                      |                                                              |
 | Convformer-NSE(Proposed by HNU IDG) | https://ieeexplore.ieee.org/document/9872314                 |
 | MaxVit                              | https://arxiv.org/abs/2204.01697                             |
 | LocalVit                            | https://arxiv.org/abs/2104.05707                             |
 | Neighborhood Attention Transformer  | https://arxiv.org/abs/2204.07143                             |
+| McSwin Transformer                  | https://doi.org/10.1016/j.isatra.2022.04.043                 |
 
-The model_dict is given to obtain model with different hyper parameters
+通过model_dict可以访问不同参数的backbone
 
 ```python
 model_dict = {'vgg11': vgg11,
@@ -60,14 +61,13 @@ model_dict = {'vgg11': vgg11,
               'nat_tiny': nat_tiny,
               'nat_small':nat_small,
               'nat_base':nat_base}
-
 ```
 
-#### Description of datasets
+#### 数据集介绍
 
-1.The bevel gearbox fault datasets collect from HNU
+1.湖南大学锥齿轮试验台故障数据
 
-Data file structure：
+文件结构：
 
 ```
 | Data/
@@ -76,13 +76,13 @@ Data file structure：
 |----.....
 ```
 
-Experimental rig ：
+实验装置：
 
-![b22907551611ab9322ce02788af09ce](D:\深度学习\测试数据\湖大螺旋锥齿轮新箱体test\试验台\b22907551611ab9322ce02788af09ce.jpg)
+![湖南大学实验装置](https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team/raw/master/png/湖大试验台.jpg)
 
-2.The gearbox fault datasets collect from XJTU
 
-Data file structure：
+
+2.西安交通大学齿轮箱试验台故障数据
 
 ```python
 | Data/
@@ -97,13 +97,13 @@ Data file structure：
 |......
 ```
 
-Experimental rig ：
+实验装置：
 
-![image-20221028142056787](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20221028142056787.png)
+![西安交通大学实验装置](https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team/raw/master/png/Figure_XJTUGearbox.jpg)
 
-3.The gearbox fault datasets collect from DDS
+3.DDS齿轮箱试验台故障数据
 
-Data file structure：
+文件结构：
 
 ```python
 | Data/
@@ -113,13 +113,13 @@ Data file structure：
 |     |---- data.xx
 ```
 
-Experimental rig ：
+实验装置：
 
-![image-20221028142239324](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20221028142239324.png)
+![DDS实验装置](https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team/raw/master/png/DDS.jpg)
 
-#### Experimental results
+#### 实验结果
 
-The gearbox fault datasets collect from XJTU (open access) is used to conduct experiment, with 100 training samples and 200 test samples for each type of work condition.  Each sample is composed of 1024 points and two channels, and the overlap rate is 30% between two consecutive samples. the experimental results are shown in following table. 
+实验采用了西安交通大学的齿轮箱公开数据集，每类故障训练样本为100个，测试样本为200个，样本长度为1024，双通道，连续两个样本之间的重合率为30%，实验结果如下：
 
 | Model         | Type                          | Data length | Epochs | Best Top-1 Acc |
 | ------------- | ----------------------------- | ----------- | ------ | -------------- |
@@ -134,60 +134,60 @@ The gearbox fault datasets collect from XJTU (open access) is used to conduct ex
 | MaxVit        | 'max_vit_tiny'                | 1024        | 100    | 88.13%         |
 | Nat           | 'nat_tiny'                    | 1024        | 100    | 100%           |
 
-#### Installation Tutorial 
+#### 安装教程
 
-This repository is tested on Windows 10, Python 3.7, Pytorch 1.7.01 and CUDA 10.1
+代码是在Windows10，Python 3.7，Pytorch 1.7.01, CUDA10.1环境下进行测试
 
-Installing dependency repository:
+安装依赖库：
 
 pip install -r requirement.txt
 
-Download code locally with git：
+本地克隆代码：
 
 git clone https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team.git
 
-#### Description of key parameters
+#### 关键参数说明
 
+```python
+--optimizer_name: 支持使用的优化器,如果需要添加或自定义新的优化器,请修改create_optimizer函数
+--lr_scheduler: 支持使用的学习率变化测率,如果需要添加或自定义新的策略,请修改create_scheduler函数
+--loss_name: 支持使用的损失,如果需要添加或自定义新的损失函数,请修改creat_loss函数
+--datasets: 支持使用的数据集,见数据集介绍三种文件结构
+--model_name: 支持的Backbone, 见model_dict字典
+--use_ratio: 是否采用ratio划分样本
+--size: 每类别的总样本数,若use_ratio为True,则根据size和use_ratio划分训练样本和测试样本
+--train_size_use:训练样本数,use_ratio为False时起作用,适用于不平衡数据集时的训练
+--test_size:测试样本数,use_ratio为False时起作用,适用于不平衡数据集时的测试
+--num_cls:分类类别
+-ic, --input_channel:输入一维数据的channel数
+--layer_args:分类层的结构参数
 ```
---optimizer_name: str, The optimizer which is supported in training processing, if you want to add or define new optimzier, please update the create_optimizer function
---lr_scheduler: str, The learning rate scheduler which is supported in training processing, if you want to add or define new scheduler, please update the create_scheduler function
---loss_name: str, The loss function which is supported in training processing, if you want to add or define new loss, please update the create_loss function
---datasets: str, The way which is supported to load datasets
---model_name: str, the model in repository
---use_ratio: bool, whether to use ratio to divide datasets in traning and testing samples
---size: The total number of samples in each category. It works only the use_ratio is set as True
---train_size_use: The number of training samples of each category. It works only the use_ratio is set as False
---test_size:The number of training samples of each category. It works only the use_ratio is set as False
---num_cls: The number of categories
--ic, --input_channel: The channel of the input data
---layer_args: The structure and parameters of classifier
-```
 
-#### How to use
+#### 如何使用
 
-For the simplest example, specify work_dir, model and dataset
+最简单的例子，指定work_dir, 模型和数据集
 
-Because different datasets correspond to different fault classes, you also need to specify the num_cls parameter
+因为不同数据集对应的故障类别不同，也需要指定num_cls参数
 
 ```
 python train.py --work_dir to/path/data --model vgg11 --datasets hnu_datasets --num_cls 8
 ```
 
-For example, when using Vit, LocalVit training, there is need to additionally specify the length of the sample (involving Patch Embed), the length of the sample should be an integer multiple of 32
+当采用Vit，LocalVit，MaxVit训练时需要额外指定样本的长度（涉及到Patch Embed操作），样本的长度应该为32的整数倍
 
 ```
 python train.py --work_dir to/path/data --model max_vit_tiny_16 --datasets hnu_datasets --length 1024 --num_cls 8
 ```
 
-We also provide the train_dynamic.py file for training (Proposed by HUN IDG), which is suitable for dynamic adjustment of the sample weight coefficients when the training samples are unbalanced.
+我们同样提供了train_dynamic.py文件用于训练（Proposed by HUN IDG）,适用于训练样本不平衡时对样本权重系数进行动态的调整。
 
 Noted
 
-The code currently only supports single GPU training and testing
+代码目前只支持单GPU的训练和测试
 
-#### Citation
+#### 引用
 
-If you used the the EHcnn model as a comparison model, please cite:
+如果你采用了EHcnn模型的代码作为对比实验，请引用：
 
 ```python
 @article{Han2022DL,
@@ -197,7 +197,7 @@ If you used the the EHcnn model as a comparison model, please cite:
         year={2022}}
 ```
 
-If you used the EHcnn_dilation model or enhanced cross entropy as a comparison model, please cite:
+如果你采用了EHcnn模型或者enhanced cross entropy作为对比实验，请引用：
 
 ```
 @article{Han2022DL,
@@ -207,7 +207,7 @@ If you used the EHcnn_dilation model or enhanced cross entropy as a comparison m
         year={2021}}
 ```
 
-If you have used the Convformer-nse model as a comparison model, please cite:
+如果你采用了Convformer-nse模型作为对比实验，请引用:
 
 ```
 @article{Han2022DL,
@@ -218,7 +218,7 @@ Using Joint Global and Local Information},
         year={2022}}
 ```
 
-If you used dynamic training (train_dynamic.py) as a comparison experiment, please cite:
+如果你采用了动态训练(train_dynamic.py)作为对比实验，请引用：
 
 ```
 @article{Han2022DL,
@@ -228,7 +228,7 @@ If you used dynamic training (train_dynamic.py) as a comparison experiment, plea
         year={2022}}
 ```
 
-If you have used the publicly  dataset from XJTU , please cite:
+如果你采用了公开的西安交通大学数据集（链接如下），请根据相关要求对论文进行引用，引用格式为：
 
 ```
 [1] Tianfu Li, Zheng Zhou, Sinan Li, Chuang Sun, Ruqiang Yan, Xuefeng Chen, “The emerging graph 
@@ -237,14 +237,14 @@ neural networks for intelligent fault diagnostics and prognostics: A guideline a
 10.1016/j.ymssp.2021.108653
 ```
 
-[XJTU Gearbox Datasets](https://drive.google.com/drive/folders/1ejGZu9oeL1D9nKN07Q7z72O8eFrWQTay)
+[XJTU齿轮箱试验台数据集](https://drive.google.com/drive/folders/1ejGZu9oeL1D9nKN07Q7z72O8eFrWQTay)
 
 
-#### Contact
+#### 联系方式
 
-If you have any questions about the codes or would like to communicate about intelligent fault diagnosis, fault detection,please contact us.
+如果对代码有任何问题，或者想要进行智能故障诊断，缺陷检测的交流，欢迎联系：
 
 fletahsy@hnu.edu.cn
 
-Mentor E-mail：hdshao@hnu.edu.cn
+导师邮箱：hdshao@hnu.edu.cn
 
