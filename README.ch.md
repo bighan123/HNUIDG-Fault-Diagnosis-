@@ -78,7 +78,11 @@ model_dict = {'vgg11': vgg11,
 
 实验装置：
 
+<<<<<<< HEAD
 ![湖南大学实验装置](https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team/raw/master/png/湖大试验台.jpg)
+=======
+![湖南大学实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/湖大试验台.jpg)
+>>>>>>> 4a9fc8ff7c320ef03f6e8e91cb5c3a006de84603
 
 
 
@@ -99,7 +103,11 @@ model_dict = {'vgg11': vgg11,
 
 实验装置：
 
+<<<<<<< HEAD
 ![西安交通大学实验装置](https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team/raw/master/png/Figure_XJTUGearbox.jpg)
+=======
+![西安交通大学实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/Figure_XJTUGearbox.jpg)
+>>>>>>> 4a9fc8ff7c320ef03f6e8e91cb5c3a006de84603
 
 3.DDS齿轮箱试验台故障数据
 
@@ -115,7 +123,11 @@ model_dict = {'vgg11': vgg11,
 
 实验装置：
 
+<<<<<<< HEAD
 ![DDS实验装置](https://gitee.com/fletahsy/the-fault-diagnosis-code-demo-of-hnu-intelligent-diagnosis-team/raw/master/png/DDS.jpg)
+=======
+![DDS实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/DDS.jpg)
+>>>>>>> 4a9fc8ff7c320ef03f6e8e91cb5c3a006de84603
 
 #### 实验结果
 
