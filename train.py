@@ -78,7 +78,8 @@ def parse_args():
                                  'localvit_base_patch16_type1', 'localvit_base_patch16_type2',
                                  ' localvit_middle1_patch16_type1', 'localvit_middle12_patch16_type1',
                                  'nat_tiny',
-                                 'mcswin_t'],
+                                 'mcswin_t',
+                                 'uniformer_tiny'],
                         help="the name of model")
 
     parser.add_argument("--num_cls", type=int, default=9, help="the classification classes")
@@ -141,7 +142,7 @@ def main():
     best_acc = 0
     best_epoch = 0
     opt = parse_args()
-    if opt.model.startswith("vit") or opt.model.startswith("localvit"):
+    if opt.model.startswith("vit") or opt.model.startswith("localvit") or opt.model.startswith("uniformer"):
         model = model_dict[opt.model](data_size=opt.length, h_args=opt.h_args, in_c=opt.input_channel,
                                       num_cls=opt.num_cls)
     else:

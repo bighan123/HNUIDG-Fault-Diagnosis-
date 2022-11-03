@@ -11,6 +11,8 @@ from .convformerv1 import convoformer_v1_small, convoformer_v1_middle, convormer
 from .convformerv2 import convoformer_v2_small, convoformer_v2_middle, convormer_v2_big
 from .nat import nat_tiny, nat_small, nat_base
 from .MCSwin import mcswinT
+from .uniformer import uniformer_tiny
+
 model_dict = {'vgg11': vgg11,
               'vgg13': vgg13,
               'vgg16': vgg16,
@@ -46,6 +48,7 @@ model_dict = {'vgg11': vgg11,
               ' localvit_middle1_patch16_type1': localvit_middle1_patch16_type1,
               'localvit_middle12_patch16_type1': localvit_middle2_patch32_type1,
               'nat_tiny': nat_tiny,
-              'nat_small':nat_small,
-              'nat_base':nat_base,
-              'mcswin_t':mcswinT}
+              'nat_small': nat_small,
+              'nat_base': nat_base,
+              'mcswin_t': mcswinT,
+              'uniformer_tiny': uniformer_tiny}

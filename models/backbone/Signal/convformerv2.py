@@ -168,7 +168,7 @@ class Convformer_Block(nn.Module):
         return x
 
 
-class Convformer_Stage(nn.Module):
+class ConvformerStage(nn.Module):
     def __init__(self,
                  depth,
                  k, s, c,
@@ -319,7 +319,7 @@ class Convformer_nse(nn.Module):
     @staticmethod
     def _make_layers(params, use_bn=True):
         layers = []
-        layers += [Convformer_Stage(depth=params[0], k=params[1], s=params[2],
+        layers += [ConvformerStage(depth=params[0], k=params[1], s=params[2],
                                     c=params[3], conv_s=params[4], conv_k=params[5], num_heads=params[-1])]
 
         return nn.Sequential(*layers), params[3]
@@ -385,6 +385,6 @@ def convormer_v2_big(h_args, in_c, num_cls):
 
 
 if __name__ == "__main__":
-    model = convoformer_small(h_args=None, in_c=2, num_cls=8)
+    model = convoformer_v2_small(h_args=None, in_c=2, num_cls=8)
     tensor = torch.rand(5, 2, 1024)
     print(model(tensor).shape)

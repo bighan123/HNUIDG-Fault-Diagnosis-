@@ -199,7 +199,7 @@ class VisionTransformer(nn.Module):
         super(VisionTransformer, self).__init__()
         self.num_cls = num_cls
         depth, num_heads, patch_size = cfgs[0], cfgs[1], cfgs[2]
-        self.last_channel = self.embed_dim = patch_size * in_c
+        self.last_channels = self.embed_dim = patch_size * in_c
         self.num_tokens = 1
         self.norm_layer = norm_layer or partial(nn.LayerNorm, eps=1e-6)
         self.act = act_layer or nn.GELU
@@ -222,12 +222,12 @@ class VisionTransformer(nn.Module):
         self.norm = norm_layer(self.embed_dim) if norm_layer else nn.Identity()
         self.classifier = nn.ModuleList([])
         if not h_args:
-            self.classifier.append(nn.Linear(self.last_channel, self.num_cls))
+            self.classifier.append(nn.Linear(self.last_channels, self.num_cls))
             self.classifier.append((nn.Softmax(dim=-1)))
         else:
             for i in range(len(h_args)):
                 if i == 0:
-                    self.classifier.append(nn.Linear(self.last_channel, h_args[i]))
+                    self.classifier.append(nn.Linear(self.last_channels, h_args[i]))
                 else:
                     self.classifier.append(nn.Linear(h_args[i - 1], h_args[i]))
             self.classifier.append(nn.Linear(h_args[-1], num_cls))
@@ -272,6 +272,7 @@ class VisionTransformer(nn.Module):
                     nn.init.zeros_(m.bias)
 
 
+# depth, num heads, patch size
 cfgs = {'base': [12, 8, 16],
         "middle_1": [12, 16, 16],
         'middle_2': [12, 16, 32],

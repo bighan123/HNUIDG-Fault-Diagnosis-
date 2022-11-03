@@ -176,7 +176,7 @@ class Avg_max_channel_attention(nn.Module):
         return x_avg_attn * x + x_max_attn * x
 
 
-class Convformer_Stage(nn.Module):
+class ConvformerStage(nn.Module):
     def __init__(self,
                  depth,
                  dim,
@@ -257,7 +257,7 @@ class Convformer_nse(nn.Module):
 
     def _make_layer(self, cfg):
         layers = []
-        layers += [Convformer_Stage(depth=cfg[0],
+        layers += [ConvformerStage(depth=cfg[0],
                                     kernel_size=cfg[1],
                                     stride=cfg[2],
                                     in_channels=cfg[3],
