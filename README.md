@@ -20,6 +20,7 @@ The classical CNN,  Vision Transformer and Hybrid model is supported for intelli
 | LocalVit                            | https://arxiv.org/abs/2104.05707                             |
 | Neighborhood Attention Transformer  | https://arxiv.org/abs/2204.07143                             |
 | McSwin Transformer                  | https://doi.org/10.1016/j.isatra.2022.04.043                 |
+| Uniformer                           | https://arxiv.org/abs/2201.09450                             |
 
 The model_dict is given to obtain model with different hyper parameters
 
@@ -79,11 +80,7 @@ Data file structure：
 
 Experimental rig ：
 
-<<<<<<< HEAD
-![b22907551611ab9322ce02788af09ce](D:\深度学习\测试数据\湖大螺旋锥齿轮新箱体test\试验台\b22907551611ab9322ce02788af09ce.jpg)
-=======
 ![湖南大学实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/湖大试验台.jpg)
->>>>>>> 4a9fc8ff7c320ef03f6e8e91cb5c3a006de84603
 
 2.The gearbox fault datasets collect from XJTU
 
@@ -104,11 +101,7 @@ Data file structure：
 
 Experimental rig ：
 
-<<<<<<< HEAD
-![image-20221028142056787](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20221028142056787.png)
-=======
 ![西安交通大学实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/Figure_XJTUGearbox.jpg)
->>>>>>> 4a9fc8ff7c320ef03f6e8e91cb5c3a006de84603
 
 3.The gearbox fault datasets collect from DDS
 
@@ -124,12 +117,7 @@ Data file structure：
 
 Experimental rig ：
 
-<<<<<<< HEAD
-![image-20221028142239324](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20221028142239324.png)
-=======
 ![DDS实验装置](https://github.com/bighan123/HNUIDG-Fault-Diagnosis-/blob/main/png/DDS.jpg)
->>>>>>> 4a9fc8ff7c320ef03f6e8e91cb5c3a006de84603
-
 #### Experimental results
 
 The gearbox fault datasets collect from XJTU (open access) is used to conduct experiment, with 100 training samples and 200 test samples for each type of work condition.  Each sample is composed of 1024 points and two channels, and the overlap rate is 30% between two consecutive samples. the experimental results are shown in following table. 
