@@ -6,10 +6,10 @@ import time
 import pickle
 import tensorboard_logger as tb_logger
 from datasets.datasets_loader import get_loaders_new
-from hlepr.loops import train_one_epoch_dynamic, validate
+from helper.loops import train_one_epoch_dynamic, validate
 from models.backbone.Signal import model_dict
 from datasets import datasets_dict
-from hlepr.create import create_optimizer, create_scheduler
+from helper.create import create_optimizer, create_scheduler
 
 
 def parse_args():

@@ -3,8 +3,8 @@ import time
 import torch
 import torch.nn as nn
 from torch.cuda.amp import autocast
-from hlepr.util import AverageMeter, topk_accuracy
-from hlepr.util_dynamic import realtime_classification, sample_weight_compute
+from helper.util import AverageMeter, topk_accuracy
+from helper.util_dynamic import realtime_classification, sample_weight_compute
 
 
 def train_one_epoch(epoch, train_loader, model, criterion, optimizer, scaler, opt):

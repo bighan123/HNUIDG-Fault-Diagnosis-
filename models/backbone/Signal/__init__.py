@@ -12,6 +12,7 @@ from .convformerv2 import convoformer_v2_small, convoformer_v2_middle, convormer
 from .nat import nat_tiny, nat_small, nat_base
 from .MCSwin import mcswinT
 from .uniformer import uniformer_tiny
+from .crossvit import cross_vit_tiny, cross_vit_big, cross_vit_base
 
 model_dict = {'vgg11': vgg11,
               'vgg13': vgg13,
@@ -51,4 +52,7 @@ model_dict = {'vgg11': vgg11,
               'nat_small': nat_small,
               'nat_base': nat_base,
               'mcswin_t': mcswinT,
-              'uniformer_tiny': uniformer_tiny}
+              'uniformer_tiny': uniformer_tiny,
+              'cross_vit_tiny':cross_vit_tiny,
+              'cross_vit_base':cross_vit_base,
+              'cross_vit_big':cross_vit_big}

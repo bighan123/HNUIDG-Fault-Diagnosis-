@@ -7,10 +7,10 @@ import torch.nn as nn
 from datasets.datasets_loader import get_loaders_new
 from torch.cuda.amp import GradScaler
 from torch.utils.tensorboard import SummaryWriter
-from hlepr.loops import train_one_epoch, validate
+from helper.loops import train_one_epoch, validate
 from models.backbone.Signal import model_dict
 from datasets import datasets_dict
-from hlepr.create import create_optimizer, create_scheduler, creat_loss
+from helper.create import create_optimizer, create_scheduler, creat_loss
 
 
 def parse_args():
@@ -66,7 +66,7 @@ def parse_args():
     parser.add_argument("-t", "--trail", type=int, default=0, help="the experiment id")
 
     # model parameters
-    parser.add_argument("--model", type=str, default="nat_tiny",
+    parser.add_argument("--model", type=str, default="cross_vit_tiny",
                         choices=["convformer_v1_s", "convformer_v1_m", "convformer_v1_l",
                                  "convformer_v2_s", "convformer_v2_m", "convformer_v2_l",
                                  "resnet18", "resnet34", "resnet50", "resnet101", "resnet152",
@@ -79,7 +79,8 @@ def parse_args():
                                  ' localvit_middle1_patch16_type1', 'localvit_middle12_patch16_type1',
                                  'nat_tiny',
                                  'mcswin_t',
-                                 'uniformer_tiny'],
+                                 'uniformer_tiny',
+                                 'cross_vit_tiny', 'cross_vit_base', 'cross_vit_big'],
                         help="the name of model")
 
     parser.add_argument("--num_cls", type=int, default=9, help="the classification classes")
@@ -115,10 +116,12 @@ def parse_args():
         for it in size:
             opt.train_size.append(int(it))
 
-    opt.model_name = '{}_{}_lr_{}_decay_{}_trial_{}_train_ratio{}_amp_use_{}'.format(opt.model, opt.datasets, opt.lr,
-                                                                                     opt.weight_decay,
-                                                                                     opt.trail, opt.ratio,
-                                                                                     bool(opt.amp))
+    opt.model_name = '{}_{}_lr_{}_decay_{}_trial_{}_test_size{}_amp_use_{}'.format(opt.model,
+                                                                                   opt.datasets, opt.lr,
+                                                                                   opt.weight_decay,
+                                                                                   opt.trail,
+                                                                                   opt.test_size,
+                                                                                   bool(opt.amp))
 
     opt.save_path = './save/model'
     opt.save_folder = os.path.join(opt.save_path, opt.model_name)
@@ -142,7 +145,8 @@ def main():
     best_acc = 0
     best_epoch = 0
     opt = parse_args()
-    if opt.model.startswith("vit") or opt.model.startswith("localvit") or opt.model.startswith("uniformer"):
+    if opt.model.startswith("vit") or opt.model.startswith("localvit") or opt.model.startswith(
+            "uniformer") or opt.model.startswith("cross"):
         model = model_dict[opt.model](data_size=opt.length, h_args=opt.h_args, in_c=opt.input_channel,
                                       num_cls=opt.num_cls)
     else:

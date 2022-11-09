@@ -14,6 +14,7 @@ The classical CNN,  Vision Transformer and Hybrid model is supported for intelli
 | Dilated EHcnn(Proposed by HNU IDG)  | https://iopscience.iop.org/article/10.1088/1361-6501/ac1b43  |
 | **Vision Transformer model**        |                                                              |
 | ViT                                 | https://arxiv.org/abs/2010.11929                             |
+| CrossViT                            | https://arxiv.org/abs/2103.14899                             |
 | **Hybrid model**                    |                                                              |
 | Convformer-NSE(Proposed by HNU IDG) | https://ieeexplore.ieee.org/document/9872314                 |
 | MaxVit                              | https://arxiv.org/abs/2204.01697                             |
@@ -188,7 +189,7 @@ The code currently only supports single GPU training and testing
 
 #### Citation
 
-If you used the the EHcnn model as a comparison model, please cite:
+If you have used the the EHcnn model as a comparison model, please cite:
 
 ```python
 @article{Han2022DL,
@@ -198,7 +199,7 @@ If you used the the EHcnn model as a comparison model, please cite:
         year={2022}}
 ```
 
-If you used the EHcnn_dilation model or enhanced cross entropy as a comparison model, please cite:
+If you have used the EHcnn_dilation model or enhanced cross entropy as a comparison model, please cite:
 
 ```
 @article{Han2022DL,
@@ -219,14 +220,14 @@ Using Joint Global and Local Information},
         year={2022}}
 ```
 
-If you used dynamic training (train_dynamic.py) as a comparison experiment, please cite:
+If you have used dynamic training (train_dynamic.py) as a comparison experiment, please cite:
 
 ```
 @article{Han2022DL,
         title={End-to-end chiller fault diagnosis using fused attention mechanism and dynamic cross-entropy under imbalanced datasets},
         author={Han SongYu and Shao Haidong and Huo Zhiqiang and Yang Xingkai and Cheng Junsheng},
         journal={Building and Environment},
-        year={2022}}
+        year=2022}}
 ```
 
 If you have used the publicly  dataset from XJTU , please cite:
@@ -240,6 +241,7 @@ neural networks for intelligent fault diagnostics and prognostics: A guideline a
 
 [XJTU Gearbox Datasets](https://drive.google.com/drive/folders/1ejGZu9oeL1D9nKN07Q7z72O8eFrWQTay)
 
+if you have used the code of our repository, please star it, thank you very much.
 
 #### Contact
 
